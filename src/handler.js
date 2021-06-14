@@ -63,7 +63,11 @@ const saveBookHandler = (request, h) => {
 const getAllBooksHandler = () => ({
   status: 'success',
   data: {
-    bookshelf,
+    bookshelf: bookshelf.map((book) => ({
+      id: book.id,
+      name: book.name,
+      publisher: book.publisher,
+    })),
   },
 });
 const getBookByIdHandler = (request, h) => {
