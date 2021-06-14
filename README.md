@@ -3,7 +3,7 @@
 1. API harus dapat menyimpan buku melalui route:<br/>
     Method : POST <br/>
     URL : /books <br/>
-    Body Request:
+    Body Request:<br/>
     ```yaml
     {
         "name": string,
@@ -36,7 +36,7 @@
     ```
 <br/>
 3. Properti yang ditebalkan diolah dan didapatkan di sisi server. Berikut penjelasannya:
-<br/>
+<br/><br/>
     id : nilai id haruslah unik. Untuk membuat nilai unik, Anda bisa memanfaatkan nanoid.
 <br/><br/>
     finished : merupakan properti boolean yang menjelaskan apakah buku telah selesai dibaca atau belum. Nilai finished didapatkan dari observasi pageCount === readPage.
@@ -48,37 +48,37 @@
 4. Server harus merespons gagal bila:
     - Client tidak melampirkan properti namepada request body. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
         Status Code : 400 <br/>
-        Response Body:
+        Response Body: <br/>
         ```yaml
         {
-	        "status": "fail",
-	        "message": "Gagal menambahkan buku. Mohon isi nama buku"
+	   "status": "fail",
+	   "message": "Gagal menambahkan buku. Mohon isi nama buku"
     	}
         ```
 <br/>
     - Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
     	Status Code : 400 <br/>
-	Response Body:
+	Response Body: <br/>
         ```yaml
-		{
-	        "status": "fail",
-	        "message": "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
+	{
+	  "status": "fail",
+	  "message": "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
     	}
         ```
 <br/>
     - Server gagal memasukkan buku karena alasan umum (generic error). Bila hal ini terjadi, maka server akan merespons dengan: <br/>
     	Status Code : 500 <br/>
-    	Response Body:
+    	Response Body: <br/>
         ```yaml
     	{
-        	"status": "error",
-        	"message": "Buku gagal ditambahkan"
+           "status": "error",
+           "message": "Buku gagal ditambahkan"
     	}
         ```
 <br/>
 5. Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan: &nbsp;
     Status Code : 201 <br/>
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
         "status": "success",
@@ -96,70 +96,70 @@
 <br/><br/>
 2. Server harus mengembalikan respons dengan: <br/>
     Status Code : 200 <br/>
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
-        "status": "success",
-        "data": {
-            "books": [
-                {
-                    "id": "Qbax5Oy7L8WKf74l",
-                    "name": "Buku A",
-                    "publisher": "Dicoding Indonesia"
-                },
+       "status": "success",
+       "data": {
+          "books": [
+           {
+             "id": "Qbax5Oy7L8WKf74l",
+             "name": "Buku A",
+             "publisher": "Dicoding Indonesia"
+           },
                 
-            ]
-        }
-    }
-    ```
+         ]
+      }
+   }
+   ```
 <br/><br/>
 3. Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong. <br/>
     ```yaml
     {
-        "status": "success",
-        "data": {
-            "books": []
-        }
+      "status": "success",
+      "data": {
+          "books": []
+      }
     }
     ```
 <br/>
 ## Kriteria 3 : API dapat menampilkan detail buku
 1. API  harus dapat menampilkan seluruh buku yang disimpan melalui route: <br/>
     Method : GET <br/>
-    URL: /books/{bookId}
+    URL: /books/{bookId} 
 <br/><br/>
 2. Bila buku dengan id yang dilampirkan oleh client tidak ditemukan, maka server harus mengembalikan respons dengan: <br/>
     Status Code : 404 <br/>
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
-        "status": "fail",
-        "message": "Buku tidak ditemukan"
+      "status": "fail",
+      "message": "Buku tidak ditemukan"
     }
     ```
 <br/><br/>
 3. Bila buku dengan id yang dilampirkan ditemukan, maka server harus mengembalikan respons dengan: <br/>
     Status Code : 200 <br/>
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
-        "status": "success",
-        "data": {
-            "book": {
-                "id": "aWZBUW3JN_VBE-9I",
-                "name": "Buku A Revisi",
-                "year": 2011,
-                "author": "Jane Doe",
-                "summary": "Lorem Dolor sit Amet",
-                "publisher": "Dicoding",
-                "pageCount": 200,
-                "readPage": 26,
-                "finished": false,
-                "reading": false,
-                "insertedAt": "2021-03-05T06:14:28.930Z",
-                "updatedAt": "2021-03-05T06:14:30.718Z"
-            }
-        }
+      "status": "success",
+      "data": {
+         "book": {
+            "id": "aWZBUW3JN_VBE-9I",
+            "name": "Buku A Revisi",
+            "year": 2011,
+            "author": "Jane Doe",
+            "summary": "Lorem Dolor sit Amet",
+            "publisher": "Dicoding",
+            "pageCount": 200,
+            "readPage": 26,
+            "finished": false,
+            "reading": false,
+            "insertedAt": "2021-03-05T06:14:28.930Z",
+            "updatedAt": "2021-03-05T06:14:30.718Z"
+         }
+       }
     }
     ```
 <br/>
@@ -167,7 +167,7 @@
 1. API yang Anda buat harus dapat mengubah data buku berdasarkan id melalui route: <br/>
     Method : PUT <br/>
     URL : /books/{bookId} <br/>
-    Body Request:
+    Body Request: <br/>
     ```yaml
     {
         "name": string,
@@ -184,7 +184,7 @@
 2. Server harus merespons gagal bila:<br/>
     Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
     Status Code : 400 <br/>
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
         "status": "fail",
@@ -194,7 +194,7 @@
 <br/><br/>
 3. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
     Status Code : 400 <br/>
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
         "status": "fail",
@@ -203,18 +203,18 @@
     ```
 <br/><br/>
 4. Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan: &nbsp;
-    Status Code : 404 &nbsp;
-    Response Body:
+    Status Code : 404 <br/>
+    Response Body: <br/>
     ```yaml
     {
         "status": "fail",
         "message": "Gagal memperbarui buku. Id tidak ditemukan"
     }
     ```
-&nbsp;&nbsp;
+<br/><br/>
 5. Bila buku berhasil diperbarui, server harus mengembalikan respons dengan: <br/>
     Status Code : 200 <br/>
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
         "status": "success",
@@ -229,7 +229,7 @@
 <br/><br/>
 2. Bila id yang dilampirkan tidak dimiliki oleh buku manapun, maka server harus mengembalikan respons berikut: <br/>
     Status Code : 404 <br/> 
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
         "status": "fail",
@@ -239,7 +239,7 @@
 <br/><br/>
 3. Bila id dimiliki oleh salah satu buku, maka buku tersebut harus dihapus dan server mengembalikan respons berikut: <br/>
     Status Code : 200 <br/>
-    Response Body:
+    Response Body: <br/>
     ```yaml
     {
         "status": "success",
