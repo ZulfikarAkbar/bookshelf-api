@@ -3,7 +3,7 @@
 1. API harus dapat menyimpan buku melalui route:\
     Method : POST \
     URL : /books \
-    Body Request:\
+    Body Request:
     ```yaml
     {
         "name": string,
