@@ -17,7 +17,7 @@
     }
     ```
 \
-2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini: \
+2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini: 
     ```yaml
     {
         "**id**": "Qbax5Oy7L8WKf74l",
@@ -48,7 +48,7 @@
 4. Server harus merespons gagal bila:
     - Client tidak melampirkan properti namepada request body. Bila hal ini terjadi, maka server akan merespons dengan:\
         Status Code : 400\
-        Response Body:\
+        Response Body:
         ```yaml
         {
 	        "status": "fail",
@@ -58,7 +58,7 @@
 \
     - Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:\
     	Status Code : 400\
-		Response Body:\
+	Response Body:
         ```yaml
 		{
 	        "status": "fail",
@@ -68,7 +68,7 @@
 \
     - Server gagal memasukkan buku karena alasan umum (generic error). Bila hal ini terjadi, maka server akan merespons dengan:\
     	Status Code : 500\
-    	Response Body:\
+    	Response Body:
         ```yaml
     	{
         	"status": "error",
@@ -78,7 +78,7 @@
 \
 5. Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan:\
     Status Code : 201\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "success",
@@ -96,7 +96,7 @@
 \
 2. Server harus mengembalikan respons dengan:\
     Status Code : 200\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "success",
@@ -113,7 +113,7 @@
     }
     ```
 \
-3. Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong.\
+3. Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong.
     ```yaml
     {
         "status": "success",
@@ -130,7 +130,7 @@
 \
 2. Bila buku dengan id yang dilampirkan oleh client tidak ditemukan, maka server harus mengembalikan respons dengan:\
     Status Code : 404\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "fail",
@@ -140,7 +140,7 @@
 \
 3. Bila buku dengan id yang dilampirkan ditemukan, maka server harus mengembalikan respons dengan:\
     Status Code : 200\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "success",
@@ -167,7 +167,7 @@
 1. API yang Anda buat harus dapat mengubah data buku berdasarkan id melalui route:\
     Method : PUT\
     URL : /books/{bookId}\
-    Body Request:\
+    Body Request:
     ```yaml
     {
         "name": string,
@@ -184,7 +184,7 @@
 2. Server harus merespons gagal bila:\
     Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan:\
     Status Code : 400\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "fail",
@@ -194,7 +194,7 @@
 \
 3. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan:\
     Status Code : 400\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "fail",
@@ -204,7 +204,7 @@
 \
 4. Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan:\
     Status Code : 404\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "fail",
@@ -214,7 +214,7 @@
 \
 5. Bila buku berhasil diperbarui, server harus mengembalikan respons dengan:\
     Status Code : 200\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "success",
@@ -229,7 +229,7 @@
 
 2. Bila id yang dilampirkan tidak dimiliki oleh buku manapun, maka server harus mengembalikan respons berikut:\
     Status Code : 404\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "fail",
@@ -239,7 +239,7 @@
 \
 3. Bila id dimiliki oleh salah satu buku, maka buku tersebut harus dihapus dan server mengembalikan respons berikut:\
     Status Code : 200\
-    Response Body:\
+    Response Body:
     ```yaml
     {
         "status": "success",
