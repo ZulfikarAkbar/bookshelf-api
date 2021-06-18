@@ -4,7 +4,7 @@
     Method : POST <br/>
     URL : /books <br/>
     Body Request: <br/>
-    ```javascript
+```javascript
     {
         "name": string,
         "year": number,
@@ -15,10 +15,10 @@
         "readPage": number,
         "reading": boolean
     }
-    ```
+```
 \
 2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini: <br/> 
-   ```javascript
+```javascript
     {
         "id": "Qbax5Oy7L8WKf74l",
         "name": "Buku A",
@@ -33,7 +33,7 @@
         "insertedAt": "2021-03-04T09:11:44.598Z",
         "updatedAt": "2021-03-04T09:11:44.598Z"
     }
-    ```
+```
 \
 3. Properti yang ditebalkan diolah dan didapatkan di sisi server. Berikut penjelasannya:
 <br/><br/>
