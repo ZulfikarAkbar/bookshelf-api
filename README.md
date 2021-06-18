@@ -76,7 +76,7 @@
     	}
 ```
 \
-5. Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan: &nbsp;
+5. Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan: \
     Status Code : 201 <br/>
     Response Body: <br/>
 ```javascript
@@ -113,7 +113,6 @@
    }
 ```
 \
-<br/>
 3. Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong. <br/>
 ```javascript
     {
@@ -123,7 +122,7 @@
       }
     }
 ```
-<br/>
+\
 ## Kriteria 3 : API dapat menampilkan detail buku
 1. API  harus dapat menampilkan seluruh buku yang disimpan melalui route: <br/>
     Method : GET <br/>
@@ -139,7 +138,6 @@
     }
 ```
 \
-<br/>
 3. Bila buku dengan id yang dilampirkan ditemukan, maka server harus mengembalikan respons dengan: <br/>
     Status Code : 200 <br/>
     Response Body: <br/>
@@ -181,7 +179,7 @@
         "readPage": number,
         "reading": boolean
 ```
-\\
+\
 2. Server harus merespons gagal bila:<br/>
     Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
     Status Code : 400 <br/>
@@ -192,7 +190,7 @@
         "message": "Gagal memperbarui buku. Mohon isi nama buku"
     }
  ```
-\\
+\
 3. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
     Status Code : 400 <br/>
     Response Body: <br/>
@@ -202,7 +200,7 @@
         "message": "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount"
     }
 ```
-\\
+\
 4. Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan: &nbsp;
     Status Code : 404 <br/>
     Response Body: <br/>
@@ -212,7 +210,7 @@
         "message": "Gagal memperbarui buku. Id tidak ditemukan"
     }
 ```
-\\
+\
 5. Bila buku berhasil diperbarui, server harus mengembalikan respons dengan: <br/>
     Status Code : 200 <br/>
     Response Body: <br/>
@@ -237,7 +235,7 @@
         "message": "Buku gagal dihapus. Id tidak ditemukan"
     }
 ```
-\\
+\
 3. Bila id dimiliki oleh salah satu buku, maka buku tersebut harus dihapus dan server mengembalikan respons berikut: <br/>
     Status Code : 200 <br/>
     Response Body: <br/>
