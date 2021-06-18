@@ -45,7 +45,7 @@
 <br/><br/>
     updatedAt : merupakan properti yang menampung tanggal diperbarui buku. Ketika buku baru dimasukkan, berikan nilai properti ini sama dengan insertedAt.
 <br/><br/>
-4. Server harus merespons gagal bila:
+4. Server harus merespons gagal bila:\
     - Client tidak melampirkan properti namepada request body. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
         Status Code : 400 <br/>
         Response Body: <br/>
