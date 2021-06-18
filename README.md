@@ -16,7 +16,7 @@
         "reading": boolean
     }
 ```
-\
+<br/>
 2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini: <br/> 
 ```javascript
     {
