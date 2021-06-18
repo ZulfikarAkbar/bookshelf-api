@@ -16,7 +16,7 @@
         "reading": boolean
     }
     ```
-<br/>
+\
 2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini: <br/> 
     ```json
     {
@@ -34,7 +34,7 @@
         "**updatedAt**": "2021-03-04T09:11:44.598Z"
     }
     ```
-<br/>
+\
 3. Properti yang ditebalkan diolah dan didapatkan di sisi server. Berikut penjelasannya:
 <br/><br/>
     id : nilai id haruslah unik. Untuk membuat nilai unik, Anda bisa memanfaatkan nanoid.
