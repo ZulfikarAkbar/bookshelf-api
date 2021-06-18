@@ -190,7 +190,7 @@
         "message": "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount"
     }
 ```
-4. Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan: &nbsp;
+4. Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan: \
     Status Code : 404 <br/>
     Response Body: <br/>
 ```javascript
