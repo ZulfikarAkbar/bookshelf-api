@@ -4,7 +4,7 @@
     Method : POST <br/>
     URL : /books <br/>
     Body Request: <br/>
-    ```json
+    ```javascript
     {
         "name": string,
         "year": number,
@@ -18,7 +18,7 @@
     ```
 \
 2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini: <br/> 
-    ```json
+   ```javascript
     {
         "id": "Qbax5Oy7L8WKf74l",
         "name": "Buku A",
