@@ -16,7 +16,6 @@
         "reading": boolean
     }
 ```
-\
 2. Objek buku yang disimpan pada server harus memiliki struktur seperti contoh di bawah ini: <br/> 
 ```javascript
     {
@@ -34,7 +33,6 @@
         "updatedAt": "2021-03-04T09:11:44.598Z"
     }
 ```
-\
 3. Properti yang ditebalkan diolah dan didapatkan di sisi server. Berikut penjelasannya:
 <br/><br/>
     id : nilai id haruslah unik. Untuk membuat nilai unik, Anda bisa memanfaatkan nanoid.
@@ -75,7 +73,6 @@
            "message": "Buku gagal ditambahkan"
     	}
 ```
-\
 5. Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan: \
     Status Code : 201 <br/>
     Response Body: <br/>
@@ -88,7 +85,6 @@
         }
     }
 ```
-\
 ## Kriteria 2 : API dapat menampilkan seluruh buku
 1. API  harus dapat menampilkan seluruh buku yang disimpan melalui route: <br/>
     Method : GET <br/>
@@ -112,7 +108,6 @@
       }
    }
 ```
-\
 3. Jika belum terdapat buku yang dimasukkan, server bisa merespons dengan array books kosong. <br/>
 ```javascript
     {
@@ -122,7 +117,6 @@
       }
     }
 ```
-\
 ## Kriteria 3 : API dapat menampilkan detail buku
 1. API  harus dapat menampilkan seluruh buku yang disimpan melalui route: <br/>
     Method : GET <br/>
@@ -137,7 +131,6 @@
       "message": "Buku tidak ditemukan"
     }
 ```
-\
 3. Bila buku dengan id yang dilampirkan ditemukan, maka server harus mengembalikan respons dengan: <br/>
     Status Code : 200 <br/>
     Response Body: <br/>
@@ -162,7 +155,6 @@
        }
     }
 ```
-\
 ## Kriteria 4 : API dapat mengubah data buku
 1. API yang Anda buat harus dapat mengubah data buku berdasarkan id melalui route: <br/>
     Method : PUT <br/>
@@ -179,7 +171,6 @@
         "readPage": number,
         "reading": boolean
 ```
-\
 2. Server harus merespons gagal bila:<br/>
     Client tidak melampirkan properti name pada request body. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
     Status Code : 400 <br/>
@@ -190,7 +181,6 @@
         "message": "Gagal memperbarui buku. Mohon isi nama buku"
     }
  ```
-\
 3. Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
     Status Code : 400 <br/>
     Response Body: <br/>
@@ -200,7 +190,6 @@
         "message": "Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount"
     }
 ```
-\
 4. Id yang dilampirkan oleh client tidak ditemukkan oleh server. Bila hal ini terjadi, maka server akan merespons dengan: &nbsp;
     Status Code : 404 <br/>
     Response Body: <br/>
@@ -210,7 +199,6 @@
         "message": "Gagal memperbarui buku. Id tidak ditemukan"
     }
 ```
-\
 5. Bila buku berhasil diperbarui, server harus mengembalikan respons dengan: <br/>
     Status Code : 200 <br/>
     Response Body: <br/>
@@ -220,7 +208,6 @@
         "message": "Buku berhasil diperbarui"
     }
 ```
-\
 ## Kriteria 5 : API dapat menghapus buku
 1. API yang Anda buat harus dapat menghapus buku berdasarkan id melalui route berikut: <br/>
     Method : DELETE <br/>
