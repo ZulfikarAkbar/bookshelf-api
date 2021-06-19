@@ -49,29 +49,29 @@
         Response Body: <br/>
 ```javascript
         {
-       "status": "fail",
-       "message": "Gagal menambahkan buku. Mohon isi nama buku"
-        }
+	   "status": "fail",
+	   "message": "Gagal menambahkan buku. Mohon isi nama buku"
+    	}
 ```
 \
     - Client melampirkan nilai properti readPage yang lebih besar dari nilai properti pageCount. Bila hal ini terjadi, maka server akan merespons dengan: <br/>
-        Status Code : 400 <br/>
-    Response Body: <br/>
+    	Status Code : 400 <br/>
+	Response Body: <br/>
 ```javascript
-    {
-      "status": "fail",
-      "message": "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
-        }
+	{
+	  "status": "fail",
+	  "message": "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount"
+    	}
 ```
 \
     - Server gagal memasukkan buku karena alasan umum (generic error). Bila hal ini terjadi, maka server akan merespons dengan: <br/>
-        Status Code : 500 <br/>
-        Response Body: <br/>
+    	Status Code : 500 <br/>
+    	Response Body: <br/>
 ```javascript
-        {
+    	{
            "status": "error",
            "message": "Buku gagal ditambahkan"
-        }
+    	}
 ```
 5. Bila buku berhasil dimasukkan, server harus mengembalikan respons dengan: \
     Status Code : 201 <br/>
