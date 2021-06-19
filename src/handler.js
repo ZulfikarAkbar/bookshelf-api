@@ -11,7 +11,7 @@ const saveBookHandler = (request, h) => {
     readPage,
     reading,
   } = request.payload;
-  if (name == '') {
+  if (name === undefined) {
     const response = h.response({
       status: 'fail',
       message: 'Gagal menambahkan buku. Mohon isi nama buku',
@@ -60,16 +60,22 @@ const saveBookHandler = (request, h) => {
   }).code(500);
   return response;
 };
-const getAllBooksHandler = () => ({
-  status: 'success',
-  data: {
-    bookshelf: bookshelf.map((book) => ({
-      id: book.id,
-      name: book.name,
-      publisher: book.publisher,
-    })),
-  },
-});
+const getAllBooksHandler = (request, h) => {
+  const {name, reading, finished} = request.query;
+  if (name !== undefined) bookshelf = bookshelf.filter((b) => b.name.toLowerCase() === name.toLowerCase());
+  if (reading !== undefined) bookshelf = bookshelf.filter((b) => b.reading === Number(reading));
+  if (finished !== undefined) bookshelf = bookshelf.filter((b) => b.finished === Number(finished));
+  return h.response({
+    status: 'success',
+    data: {
+      bookshelf: bookshelf.map((book) => ({
+        id: book.id,
+        name: book.name,
+        publisher: book.publisher,
+      })),
+    },
+  }).code(200);
+};
 const getBookByIdHandler = (request, h) => {
   const {bookId} = request.params;
   const book = bookshelf.filter((b) => b.id === bookId)[0];
