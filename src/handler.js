@@ -1,5 +1,5 @@
 const {nanoid} = require('nanoid');
-const bookshelf = require('./bookshelf');
+let bookshelf = require('./bookshelf');
 const saveBookHandler = (request, h) => {
   const {
     name,
@@ -62,19 +62,57 @@ const saveBookHandler = (request, h) => {
 };
 const getAllBooksHandler = (request, h) => {
   const {name, reading, finished} = request.query;
-  if (name !== undefined) bookshelf = bookshelf.filter((b) => b.name.toLowerCase() === name.toLowerCase());
-  if (reading !== undefined) bookshelf = bookshelf.filter((b) => b.reading === Number(reading));
-  if (finished !== undefined) bookshelf = bookshelf.filter((b) => b.finished === Number(finished));
-  return h.response({
-    status: 'success',
-    data: {
-      bookshelf: bookshelf.map((book) => ({
-        id: book.id,
-        name: book.name,
-        publisher: book.publisher,
-      })),
-    },
-  }).code(200);
+  if (name) {
+    let bookshelf = bookshelf.filter((b) => b.name.toLowerCase() === name.toLowerCase());
+    return h.response({
+      status: 'success',
+      data: {
+        books: bookshelf.map((book) => ({
+          id: book.id,
+          name: book.name,
+          publisher: book.publisher,
+        })),
+      },
+    }).code(200);
+  }
+  if (reading) {
+    let bookshelf = bookshelf.filter((b) => Number(b.reading) === reading);
+    return h.response({
+      status: 'success',
+      data: {
+        books: bookshelf.map((book) => ({
+          id: book.id,
+          name: book.name,
+          publisher: book.publisher,
+        })),
+      },
+    }).code(200);
+  }
+  if (finished) {
+    let bookshelf = bookshelf.filter((b) => Number(b.finished) === finished);
+    return h.response({
+      status: 'success',
+      data: {
+        books: bookshelf.map((book) => ({
+          id: book.id,
+          name: book.name,
+          publisher: book.publisher,
+        })),
+      },
+    }).code(200);
+  }
+  if (!name && !reading && !finished) {
+    return h.response({
+      status: 'success',
+      data: {
+        books: bookshelf.map((book) => ({
+          id: book.id,
+          name: book.name,
+          publisher: book.publisher,
+        })),
+      },
+    }).code(200);
+  }
 };
 const getBookByIdHandler = (request, h) => {
   const {bookId} = request.params;
@@ -105,7 +143,7 @@ const editBookByIdHandler = (request, h) => {
     readPage,
     reading,
   } = request.payload;
-  if (name == '') {
+  if (name === undefined) {
     const response = h.response({
       status: 'fail',
       message: 'Gagal memperbarui buku. Mohon isi nama buku',
